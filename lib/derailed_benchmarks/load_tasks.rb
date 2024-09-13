@@ -90,7 +90,7 @@ namespace :perf do
     CURL_HTTP_HEADER_ARGS = HTTP_HEADERS.map { |http_header_name, value| "-H \"#{http_header_name}: #{value}\"" }.join(" ")
 
     require 'rack/test'
-    require 'rack/file'
+    require 'rack/files'
 
     DERAILED_APP = DerailedBenchmarks.add_auth(Object.class_eval { remove_const(:DERAILED_APP) })
     if server = ENV["USE_SERVER"]
